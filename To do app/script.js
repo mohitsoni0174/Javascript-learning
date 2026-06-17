@@ -1,32 +1,60 @@
-const input =
-  document.querySelector("#taskInput");
+const input = document.querySelector("#taskInput");
+const addBtn = document.querySelector("#addBtn");
+const taskList = document.querySelector("#taskList");
 
-const addBtn =
-  document.querySelector("#addBtn");
+function createTask(taskText) {
 
-const taskList =
-  document.querySelector("#taskList");
+  const li = document.createElement("li");
+
+  const taskSpan = document.createElement("span");
+  taskSpan.textContent = taskText;
+
+  // EDIT BUTTON
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Edit";
+
+  editBtn.addEventListener("click", () => {
+
+    const updatedTask = prompt(
+      "Edit your task:",
+      taskSpan.textContent
+    );
+
+    if (
+      updatedTask !== null &&
+      updatedTask.trim() !== ""
+    ) {
+      taskSpan.textContent = updatedTask;
+    }
+
+  });
+
+  // DELETE BUTTON
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+
+  deleteBtn.addEventListener("click", () => {
+    li.remove();
+  });
+
+  li.appendChild(taskSpan);
+  li.appendChild(editBtn);
+  li.appendChild(deleteBtn);
+
+  taskList.appendChild(li);
+}
 
 addBtn.addEventListener("click", () => {
 
-    const task = input.value;
+  const task = input.value.trim();
 
-    const li = document.createElement("li");
+  if (task === "") {
+    alert("Please enter a task");
+    return;
+  }
 
-    li.textContent = task;
+  createTask(task);
 
-    const deleteBtn = document.createElement("button");
-
-    deleteBtn.textContent = "Delete";
-
-    deleteBtn.addEventListener("click", () => {
-        li.remove();
-    });
-
-    li.appendChild(deleteBtn);
-
-    taskList.appendChild(li);
-
-    input.value = "";
+  input.value = "";
 
 });
