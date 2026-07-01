@@ -1,37 +1,35 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | FinTrack Pro</title>
-    <link rel="stylesheet" href="login.css" />
-  </head>
-  <body>
-    <div class="login-card">
-      <h1>Welcome Back</h1>
-      <p>Login to FinTrack Pro</p>
-      <form>
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Enter your username"
-          required
-        />
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p class="bottom-text">
-        Don't have an account? <a href="#">Register here</a>
-      </p>
-    </div>
-  </body>
-</html>
+<div class="login-card">
+  <h1 id="title">Welcome Back</h1>
+
+  <p id="subtitle">Login to FinTrack Pro</p>
+
+  <form id="loginForm">
+    <label for="username">Username</label>
+
+    <input
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Enter your username"
+      required
+    />
+
+    <label for="password">Password</label>
+
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Enter your password"
+      required
+    />
+
+    <button id="submitBtn" type="submit">Login</button>
+  </form>
+
+  <p class="bottom-text">
+    <span id="bottomText"> Don't have an account? </span>
+
+    <a href="#" id="toggleForm"> Register here </a>
+  </p>
+</div>
